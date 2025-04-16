@@ -101,7 +101,7 @@ namespace EduTest.DataAccess.Migrations
                     Describtion = table.Column<string>(type: "text", nullable: false),
                     TestCode = table.Column<string>(type: "text", nullable: false),
                     AnswerKey = table.Column<string>(type: "text", nullable: false),
-                    StudentId = table.Column<long>(type: "bigint", nullable: false),
+                    StudentId = table.Column<long>(type: "bigint", nullable: true),
                     TeacherId = table.Column<long>(type: "bigint", nullable: false),
                     TestStatus = table.Column<int>(type: "integer", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),

@@ -179,7 +179,7 @@ namespace EduTest.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("StudentId")
+                    b.Property<long?>("StudentId")
                         .HasColumnType("bigint");
 
                     b.Property<long>("TeacherId")
@@ -282,8 +282,7 @@ namespace EduTest.DataAccess.Migrations
                     b.HasOne("EduTest.Domain.Models.Student", "Student")
                         .WithMany("Tests")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EduTest.Domain.Models.Teacher", "Teacher")
                         .WithMany("Tests")
