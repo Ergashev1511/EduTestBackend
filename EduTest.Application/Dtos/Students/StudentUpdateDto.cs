@@ -13,9 +13,6 @@ namespace EduTest.Application.Dtos.Students
         public string LastName { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
 
-        public long GroupId { get; set; }
-
-        public long TeacherId { get; set; }
         public string UserName { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
     }

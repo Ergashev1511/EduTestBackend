@@ -14,7 +14,6 @@ namespace EduTest.Application.Dtos.Tests
         public string TestCode { get; set; } = string.Empty;
         public string AnswerKey { get; set; } = string.Empty;
 
-        public long StudentId { get; set; }
         public long TeacherId { get; set; }
         public TestStatus TestStatus { get; set; }
     }

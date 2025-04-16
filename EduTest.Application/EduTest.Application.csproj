@@ -20,16 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MediatR\Commands\GroupCommands\" />
-    <Folder Include="MediatR\Commands\TestResultCommands\" />
-    <Folder Include="MediatR\Commands\TestCommands\" />
-    <Folder Include="MediatR\Commands\StudentCommands\" />
-    <Folder Include="MediatR\Commands\TeacherCommands\" />
-    <Folder Include="MediatR\Handlers\GroupHandlers\" />
     <Folder Include="MediatR\Handlers\TestResultHandlers\" />
-    <Folder Include="MediatR\Handlers\TestHandlers\" />
-    <Folder Include="MediatR\Handlers\StudentHandlers\" />
-    <Folder Include="MediatR\Handlers\TeacherHandlers\" />
   </ItemGroup>
 
 </Project>

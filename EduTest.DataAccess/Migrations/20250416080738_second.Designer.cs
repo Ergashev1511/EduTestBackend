@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EduTest.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250411081958_second")]
+    [Migration("20250416080738_second")]
     partial class second
     {
         /// <inheritdoc />
@@ -182,7 +182,7 @@ namespace EduTest.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("StudentId")
+                    b.Property<long?>("StudentId")
                         .HasColumnType("bigint");
 
                     b.Property<long>("TeacherId")
@@ -285,8 +285,7 @@ namespace EduTest.DataAccess.Migrations
                     b.HasOne("EduTest.Domain.Models.Student", "Student")
                         .WithMany("Tests")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EduTest.Domain.Models.Teacher", "Teacher")
                         .WithMany("Tests")

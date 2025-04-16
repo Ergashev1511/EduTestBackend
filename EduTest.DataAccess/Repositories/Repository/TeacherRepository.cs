@@ -96,15 +96,6 @@ namespace EduTest.DataAccess.Repositories.Repository
             try
             {
                 var teacher = await _dbContext.Teachers
-                        .Include(t => t.Students)
-                    .Include(t => t.Groups)
-                        .ThenInclude(g => g.Students)
-                    .Include(t => t.Tests)
-                        .ThenInclude(test => test.TestResults)
-                            .ThenInclude(result => result.Student)
-                    .Include(t => t.Tests)
-                        .ThenInclude(test => test.TestResults)
-                            .ThenInclude(result => result.Test)
                     .FirstOrDefaultAsync(t => t.UserName==userName);
 
                 return teacher!;

@@ -15,8 +15,8 @@ namespace EduTest.Domain.Models
         public string TestCode { get; set; } = string.Empty;
         public string AnswerKey { get; set; } = string.Empty;
 
-        public long StudentId { get; set; }
-        public Student Student { get; set; } = new();
+        public long? StudentId { get; set; }
+        public Student? Student { get; set; } = new();
         public long TeacherId { get; set; }
         public Teacher Teacher { get; set; }=new();
 

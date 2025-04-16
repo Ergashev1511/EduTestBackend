@@ -1,4 +1,5 @@
 ﻿using EduTest.Application.Common.Validators;
+using EduTest.Application.Dtos;
 using EduTest.Application.Dtos.Teachers;
 using EduTest.Application.JwtTokenSerives;
 using EduTest.Application.MediatR.Commands.AuthCommands;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace EduTest.Application.MediatR.Handlers.AuthHandlers
 {
-    public class TeacherLoginHandler : IRequestHandler<TeacherLoginCommand, string>
+    public class TeacherLoginHandler : IRequestHandler<TeacherLoginCommand, LoginRequst>
     {
         private readonly ITeacherRepository _teacherRepository;
         private readonly IJwtTokenService _jwtTokenService;
@@ -26,7 +27,7 @@ namespace EduTest.Application.MediatR.Handlers.AuthHandlers
             _validator = validator;
         }
 
-        public async Task<string> Handle(TeacherLoginCommand request, CancellationToken cancellationToken)
+        public async Task<LoginRequst> Handle(TeacherLoginCommand request, CancellationToken cancellationToken)
         {
             try
             {
@@ -38,7 +39,15 @@ namespace EduTest.Application.MediatR.Handlers.AuthHandlers
                 
                 var teacher=await _teacherRepository.GetByUserNameAsync(request.TeacherLoginDto.UserName);
                 if (teacher == null)
-                    throw new Exception("This is User Name not fount");
+                {
+                    return new LoginRequst()
+                    {
+                        Token = "null",
+                        Username = "null",
+                        Role = "null",
+                        Result = "User name topilmadi"
+                    };
+                }
 
 
                 var saltBytes = Convert.FromBase64String(teacher.PasswordSalt);
@@ -46,14 +55,36 @@ namespace EduTest.Application.MediatR.Handlers.AuthHandlers
                 var hash = Convert.ToBase64String(hashBytes);
 
                 if (hash != teacher.PasswordHash)
-                    throw new Exception("Noto'g'ri parol");
+                {
+                    return new LoginRequst()
+                    {
+                        Token = "null",
+                        Username = "null",
+                        Role = "null",
+                        Result = "No'to'g'ri parol"
+                    };
+                }
 
-                return _jwtTokenService.GenerateToken(teacher.UserName);
+                var res=new LoginRequst()
+                {
+                    Token= _jwtTokenService.GenerateToken(teacher.UserName),
+                    Username=teacher.UserName,
+                    Role=teacher.Role.ToString(),
+                    Result="Success"
+                };
+
+                return res;
 
             }
             catch (Exception ex)
             {
-                return $"Registration failed: {ex.Message}";
+                return new LoginRequst()
+                {
+                    Token="null",
+                    Username="null",
+                    Role="null",
+                    Result= $"Login failed: {ex.Message}"
+                };   
             }
         }
         private byte[] HashPassword(string password, byte[] salt)
