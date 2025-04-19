@@ -53,11 +53,6 @@ namespace EduTest.DataAccess.Repositories.Repository
             try
             {
                 return await _dbContext.Teachers
-                              .Include(t => t.Students)
-                         .Include(t => t.Groups)
-                             .ThenInclude(g => g.Students)
-                         .Include(t => t.Tests)
-                             .ThenInclude(test => test.TestResults)
                          .ToListAsync();
             }
             catch

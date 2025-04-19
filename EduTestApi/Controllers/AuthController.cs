@@ -34,23 +34,10 @@ namespace EduTestApi.Controllers
 
         }
 
-        [HttpPost("teacher-login")]
-        public async ValueTask<IActionResult> TeacherLogin([FromBody]TeacherLoginCommand command)
-        {
-            var res = await _mediatR.Send(command);
-            if(res.Result.StartsWith("Login failed"))
-                return BadRequest(res);
+       
 
-            return Ok(new 
-            { 
-                Token = res,
-                UserName = res.Username,
-                Role = res.Role,
-            });
-        }
-
-        [HttpPost("student-login")]
-        public async ValueTask<IActionResult> StudentLogin([FromBody]StudentLoginCommand command)
+        [HttpPost("login")]
+        public async ValueTask<IActionResult> StudentLogin([FromBody]LoginCommand command)
         {
             var res= await _mediatR.Send(command);
 
@@ -59,6 +46,7 @@ namespace EduTestApi.Controllers
 
             return Ok(new
             { 
+                Id=res.Id,
                 Token = res ,
                 UserName=res.Username,
                 Role=res.Role,

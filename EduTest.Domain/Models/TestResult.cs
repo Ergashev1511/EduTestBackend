@@ -16,10 +16,10 @@ namespace EduTest.Domain.Models
 
 
         public long StudentId { get; set; }
-        public Student Student { get; set; } = new();
+        public Student Student { get; set; } 
 
         public long TestId { get; set; }
-        public Test Test { get; set; } = new();
+        public Test Test { get; set; }
 
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace EduTest.Application.Dtos
 {
-    public class LoginRequst
+    public class LoginResponse
     {
+        public long Id { get; set; }
         public string Token { get; set; }=string.Empty;
         public string Username { get; set; } = string.Empty;
         public string Role { get; set; } = string.Empty;

@@ -18,8 +18,8 @@ namespace EduTest.Domain.Models
         public string PasswordSalt { get; set; } = string.Empty;
         public Role Role { get; set; }
 
-        public List<Student> Students { get; set; } = new();
-        public List<Group>  Groups { get; set; } = new();
-        public List<Test> Tests { get; set; } = new();
+        public List<Student> Students { get; set; }
+        public List<Group>  Groups { get; set; } 
+        public List<Test> Tests { get; set; } 
     }
 }

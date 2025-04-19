@@ -18,12 +18,12 @@ namespace EduTest.Domain.Models
         public string PasswordSalt { get; set; } = string.Empty;
 
         public long GroupId { get; set; }
-        public Group Group { get; set; } = new();
+        public Group Group { get; set; }
         public long TeacherId { get; set; }
-        public Teacher Teacher { get; set; } = new();
+        public Teacher Teacher { get; set; }
         public Role Role { get; set; }
 
-        public List<Test> Tests { get; set; } = new();
-        public List<TestResult> TestResults { get; set; }=new();
+        public List<Test> Tests { get; set; } 
+        public List<TestResult> TestResults { get; set; }
     }
 }

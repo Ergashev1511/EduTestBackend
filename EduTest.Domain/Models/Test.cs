@@ -16,11 +16,11 @@ namespace EduTest.Domain.Models
         public string AnswerKey { get; set; } = string.Empty;
 
         public long? StudentId { get; set; }
-        public Student? Student { get; set; } = new();
+        public Student? Student { get; set; } 
         public long TeacherId { get; set; }
-        public Teacher Teacher { get; set; }=new();
+        public Teacher Teacher { get; set; }
 
-        public List<TestResult> TestResults { get; set; }=new();
+        public List<TestResult> TestResults { get; set; }
         public TestStatus TestStatus { get; set; }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EduTest.Application.Dtos.Teachers
+namespace EduTest.Application.Dtos
 {
-    public class TeacherLoginDto
+    public class LoginDto
     {
         public string UserName { get; set; }=string.Empty;
         public string Password { get; set; } = string.Empty;
