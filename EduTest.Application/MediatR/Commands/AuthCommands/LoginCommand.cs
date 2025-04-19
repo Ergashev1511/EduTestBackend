@@ -1,5 +1,4 @@
 ﻿using EduTest.Application.Dtos;
-using EduTest.Application.Dtos.Teachers;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace EduTest.Application.MediatR.Commands.AuthCommands
 {
-    public class TeacherLoginCommand : IRequest<LoginRequst>
+    public class LoginCommand : IRequest<LoginResponse>
     {
-        public TeacherLoginDto TeacherLoginDto { get; set; } = new();
+        public LoginDto LoginDto { get; set; } = new();
     }
 }

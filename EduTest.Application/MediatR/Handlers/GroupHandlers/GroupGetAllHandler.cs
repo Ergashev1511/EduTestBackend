@@ -43,6 +43,7 @@ namespace EduTest.Application.MediatR.Handlers.GroupHandlers
 
                         TeacherFullName=x.Teacher.FirstName+" "+x.Teacher.LastName,
                         TeacherId=x.Teacher.Id,
+         
 
                     }).ToList() ?? new List<StudentViewModel>()
                    

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EduTest.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250416080738_second")]
-    partial class second
+    [Migration("20250419084435_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

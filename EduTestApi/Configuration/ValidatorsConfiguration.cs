@@ -1,4 +1,5 @@
 ﻿using EduTest.Application.Common.Validators;
+using EduTest.Application.Dtos;
 using EduTest.Application.Dtos.Groups;
 using EduTest.Application.Dtos.Students;
 using EduTest.Application.Dtos.Teachers;
@@ -13,10 +14,9 @@ namespace EduTestApi.Configuration
         public static void ConfigurationValidators(this WebApplicationBuilder builder)
         {
             builder.Services.AddScoped<IValidator<TeacherCreateDto>, TeacherValidator>();
-            builder.Services.AddScoped<IValidator<TeacherLoginDto>, TeacherLoginValidator>();
+            builder.Services.AddScoped<IValidator<LoginDto>, LoginValidator>();
 
             builder.Services.AddScoped<IValidator<StudentCreateDto>, StudentValidator>();
-            builder.Services.AddScoped<IValidator<StudentLoginDto>, StudentLoginValidator>();
 
             builder.Services.AddScoped<IValidator<GroupCreateDto>, GroupValidator>();
 

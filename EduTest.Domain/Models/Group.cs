@@ -14,8 +14,8 @@ namespace EduTest.Domain.Models
 
 
         public long TeacherId { get; set; }
-        public Teacher Teacher { get; set; } = new();
-        public List<Student> Students { get; set; } = new();
+        public Teacher Teacher { get; set; }
+        public List<Student> Students { get; set; } 
     }
 
 }

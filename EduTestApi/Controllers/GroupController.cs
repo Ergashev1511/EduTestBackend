@@ -78,7 +78,7 @@ namespace EduTestApi.Controllers
         public async ValueTask<IActionResult> GroupGetAll()
         {
             var res = await _mediator.Send(new GroupGetAllQuery());
-            if(res==null)
+            if(res!=null)
             {
                 return Ok(res);
             }
