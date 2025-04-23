@@ -29,6 +29,7 @@ namespace EduTest.Application.MediatR.Handlers.StudentHandlers
                 var ValidateRes= _validator.Validate(request.StudentCreateDto);
                 if(!ValidateRes.IsValid)
                     throw new ValidationException(ValidateRes.Errors.First().ErrorMessage);
+
                 var saltBytes = RandomNumberGenerator.GetBytes(32);
 
                 var salt = Convert.ToBase64String(saltBytes);
@@ -54,9 +55,9 @@ namespace EduTest.Application.MediatR.Handlers.StudentHandlers
                 return true;
 
             }
-            catch
+            catch(Exception ex)
             {
-                return false;
+                throw new Exception(ex.Message, ex);
             }
         }
 

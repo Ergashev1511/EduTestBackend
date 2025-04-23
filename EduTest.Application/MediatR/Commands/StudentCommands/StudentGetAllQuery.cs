@@ -10,5 +10,6 @@ namespace EduTest.Application.MediatR.Commands.StudentCommands
 {
     public class StudentGetAllQuery : IRequest<List<StudentViewModel>>
     {
+        public string GroupName { get; set; }=string.Empty;
     }
 }

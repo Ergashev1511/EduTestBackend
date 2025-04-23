@@ -31,6 +31,7 @@ namespace EduTestApi.Controllers
             else
                 return BadRequest(new
                 {
+                    res,
                     StatusCode = 404,
                     Result = " Create Failed"
                 });
@@ -78,9 +79,9 @@ namespace EduTestApi.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async ValueTask<IActionResult> StudentGetAll()
+        public async ValueTask<IActionResult> StudentGetAll(string GroupName)
         {
-            var res =await _mediator.Send(new StudentGetAllQuery());
+            var res =await _mediator.Send(new StudentGetAllQuery(){ GroupName=GroupName});
             if (res != null)
             {
                 return Ok(res);

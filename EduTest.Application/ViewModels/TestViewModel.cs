@@ -10,6 +10,7 @@ namespace EduTest.Application.ViewModels
 {
     public class TestViewModel
     {
+        public long Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Describtion { get; set; } = string.Empty;
         public string TestCode { get; set; } = string.Empty;

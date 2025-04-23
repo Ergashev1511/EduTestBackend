@@ -9,10 +9,13 @@ namespace EduTest.Application.Dtos.Tests
 {
     public class TestCreateDto
     {
-        public string Name { get; set; } = string.Empty;
         public string Describtion { get; set; } = string.Empty;
         public string TestCode { get; set; } = string.Empty;
         public string AnswerKey { get; set; } = string.Empty;
+
+        public string? FilePath { get; set; }
+        public string? FileName { get; set; }
+        public string? ContentType { get; set; }
 
         public long TeacherId { get; set; }
         public TestStatus TestStatus { get; set; }

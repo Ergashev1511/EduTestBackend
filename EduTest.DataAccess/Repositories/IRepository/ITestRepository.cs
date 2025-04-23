@@ -1,4 +1,5 @@
 ﻿using EduTest.Domain.Models;
+using EduTest.Domain.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace EduTest.DataAccess.Repositories.IRepository
         Task<bool> DeleteAsync(long Id);
         Task<List<Test>> GetAllAsync();
         Task<Test> GetByIdAsync(long Id);
+        Task<bool> StatusUpdateAsyn(long Id, TestStatus testStatus);
     }
 }

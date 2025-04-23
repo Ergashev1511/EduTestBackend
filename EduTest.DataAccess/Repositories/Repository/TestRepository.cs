@@ -1,6 +1,7 @@
 ﻿using EduTest.DataAccess.DBContext;
 using EduTest.DataAccess.Repositories.IRepository;
 using EduTest.Domain.Models;
+using EduTest.Domain.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,21 @@ namespace EduTest.DataAccess.Repositories.Repository
             catch
             {
                 return new();
+            }
+        }
+
+        public async Task<bool> StatusUpdateAsyn(long Id, TestStatus testStatus)
+        {
+            try
+            {
+                var test = await _dbContext.Tests.FirstOrDefaultAsync(a => a.Id == Id);
+                test.TestStatus = testStatus;
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 

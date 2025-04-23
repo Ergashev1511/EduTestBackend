@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EduTest.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -101,6 +101,8 @@ namespace EduTest.DataAccess.Migrations
                     Describtion = table.Column<string>(type: "text", nullable: false),
                     TestCode = table.Column<string>(type: "text", nullable: false),
                     AnswerKey = table.Column<string>(type: "text", nullable: false),
+                    ContentType = table.Column<string>(type: "text", nullable: false),
+                    FilePath = table.Column<string>(type: "text", nullable: false),
                     StudentId = table.Column<long>(type: "bigint", nullable: true),
                     TeacherId = table.Column<long>(type: "bigint", nullable: false),
                     TestStatus = table.Column<int>(type: "integer", nullable: false),
