@@ -32,11 +32,13 @@ namespace EduTest.Application.MediatR.Handlers.TestHandlers
 
                 var test = new Test()
                 {
-                    Name=request.TestCreateDto.Name,
+                    Name=request.TestCreateDto.FileName,
                     Describtion=request.TestCreateDto.Describtion,
                     TestCode=request.TestCreateDto.TestCode,
                     AnswerKey=request.TestCreateDto.AnswerKey,
-                    TeacherId=request.TestCreateDto.TeacherId,  
+                    FilePath=request.TestCreateDto.FilePath,
+                    ContentType=request.TestCreateDto.ContentType,
+                    TeacherId =request.TestCreateDto.TeacherId,  
                     TestStatus=request.TestCreateDto.TestStatus,
                 };
 

@@ -19,4 +19,8 @@
     <ProjectReference Include="..\EduTest.Domain\EduTest.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

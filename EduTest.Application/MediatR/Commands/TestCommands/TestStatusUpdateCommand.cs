@@ -1,5 +1,4 @@
-﻿using EduTest.Application.ViewModels;
-using EduTest.Domain.Models.Enums;
+﻿using EduTest.Domain.Models.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace EduTest.Application.MediatR.Commands.TestCommands
 {
-    public class TestGetAllQuery : IRequest<List<TestViewModel>>
+    public class TestStatusUpdateCommand : IRequest<bool>
     {
-        public TestStatus testStatus { get; set; }
+        public long Id { get; set; }
+        public TestStatus  testStatus { get; set; }
     }
 }

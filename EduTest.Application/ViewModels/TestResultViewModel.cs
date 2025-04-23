@@ -19,6 +19,5 @@ namespace EduTest.Application.ViewModels
         public string StudentFullName { get; set; } = string.Empty ;
 
         public long TestId { get; set; }
-        public string AnswerKey { get; set; } = string.Empty;
     }
 }

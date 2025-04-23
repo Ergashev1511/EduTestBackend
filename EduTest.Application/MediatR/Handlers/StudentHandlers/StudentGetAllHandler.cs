@@ -27,7 +27,7 @@ namespace EduTest.Application.MediatR.Handlers.StudentHandlers
                       return new List<StudentViewModel> { };
 
 
-                    var studentView=students.Select(a=> new StudentViewModel()
+                    var studentView=students.Where(s=>s.Group.Name==request.GroupName).Select(a=> new StudentViewModel()
                     {
                         Id = a.Id, 
                         FirstName = a.FirstName,
