@@ -34,7 +34,7 @@ namespace EduTest.Application.MediatR.Handlers.TestHandlers
                 {
                     Name=request.TestCreateDto.FileName,
                     Describtion=request.TestCreateDto.Describtion,
-                    TestCode=request.TestCreateDto.TestCode,
+                    TestCode=$"#{CodeRandom()}",
                     AnswerKey=request.TestCreateDto.AnswerKey,
                     FilePath=request.TestCreateDto.FilePath,
                     ContentType=request.TestCreateDto.ContentType,
@@ -49,6 +49,12 @@ namespace EduTest.Application.MediatR.Handlers.TestHandlers
             {
                 return false;
             }
+        }
+
+       private long CodeRandom()
+        {
+            var random = new Random().Next(1000,10000);
+            return random;
         }
     }
 }

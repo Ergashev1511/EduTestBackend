@@ -20,7 +20,7 @@ namespace EduTestApi.Controllers
         }
 
         [HttpPost("upload")]
-        public async ValueTask<IActionResult> TestCreate(IFormFile file, [FromForm] string description, [FromForm] string testCode, [FromForm] string answerKey, [FromForm] long teacherId)
+        public async ValueTask<IActionResult> TestCreate(IFormFile file, [FromForm] string description, [FromForm] string answerKey, [FromForm] long teacherId)
         {
 
             if (file == null)
@@ -53,7 +53,6 @@ namespace EduTestApi.Controllers
                 FileName = safeFileName,
                 Describtion = description,
                 AnswerKey = answerKey,
-                TestCode = testCode,
                 TeacherId = teacherId,
                 ContentType=file.ContentType,
                 FilePath = $"{uploadspath}/{safeFileName}",
@@ -136,6 +135,15 @@ namespace EduTestApi.Controllers
                     StatusCode = 404,
                     Error = "Status code update failed"
                 });
+            return Ok(res);
+        }
+
+        [HttpPost("test-check")]
+        public async ValueTask<IActionResult> TestCheck(TestCheckCommand command)
+        {
+            var res=await _mediator.Send(command);
+            if(res==null)
+                return BadRequest();
             return Ok(res);
         }
     }

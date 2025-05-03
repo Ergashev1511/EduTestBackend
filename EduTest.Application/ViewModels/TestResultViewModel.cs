@@ -9,6 +9,7 @@ namespace EduTest.Application.ViewModels
 {
     public class TestResultViewModel
     {
+        public long  Id { get; set; }
         public string TestName { get; set; } = string.Empty;
         public long CorrectAnswer { get; set; }
         public long WrongAnswer { get; set; }
@@ -17,7 +18,8 @@ namespace EduTest.Application.ViewModels
 
         public long StudentId { get; set; }
         public string StudentFullName { get; set; } = string.Empty ;
-
+        public string GroupName { get; set; } = string.Empty;
+        public string TeacherFullName { get; set; } = string.Empty;
         public long TestId { get; set; }
     }
 }

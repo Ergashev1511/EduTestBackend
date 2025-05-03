@@ -10,7 +10,6 @@ namespace EduTest.Application.Dtos.Tests
     public class TestCreateDto
     {
         public string Describtion { get; set; } = string.Empty;
-        public string TestCode { get; set; } = string.Empty;
         public string AnswerKey { get; set; } = string.Empty;
 
         public string? FilePath { get; set; }

@@ -31,12 +31,31 @@ namespace EduTest.DataAccess.Repositories.Repository
             }
         }
 
+        public async Task<bool> DeleteAsync(long id)
+        {
+            try
+            {
+                var testresult=await _dbContext.TestResults.FirstOrDefaultAsync(x => x.Id == id);
+
+                 _dbContext.Remove(testresult!);
+                await _dbContext.SaveChangesAsync();
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public async Task<List<TestResult>> GetAllAsync()
         {
             try
             {
                 return await _dbContext.TestResults
                         .Include(tr => tr.Student)
+                        .ThenInclude(a=>a.Group)
+                        .ThenInclude(c=>c.Teacher)
                         .Include(tr => tr.Test)
                         .ToListAsync();
             }
