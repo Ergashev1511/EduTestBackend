@@ -58,7 +58,7 @@ namespace EduTestApi.Controllers
                 });
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         public async ValueTask<IActionResult> StudentUpdate([FromBody] StudentUpdateCommand command)
         {
             var res = await _mediator.Send(command);
@@ -93,6 +93,26 @@ namespace EduTestApi.Controllers
                     StatusCode = 404,
                     Result = "Not found"
                 });
+        }
+
+        [HttpGet("all-student")]
+        public async ValueTask<IActionResult> AllStudents()
+        {
+            var res = await _mediator.Send(new StudentsGetAllCommands());
+            if (res == null)
+                return NotFound();
+            return Ok(res);
+        }
+
+        [HttpGet("getby/{id}")]
+        public async ValueTask<IActionResult> GetById(long id)
+        {
+            var res = await _mediator.Send(new StudentGetByIdQuery() { Id = id });
+
+            if (res == null)
+                return NotFound();
+
+            return Ok(res);
         }
     }
 }

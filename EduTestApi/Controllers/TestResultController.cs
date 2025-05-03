@@ -23,6 +23,7 @@ namespace EduTestApi.Controllers
             if (res == false)
                 return BadRequest(new
                 {
+                    res,
                     StatusCode = 404,
                     Error = "Creat failed"
                 });
@@ -52,17 +53,39 @@ namespace EduTestApi.Controllers
             });
         }
 
-        [HttpGet("{test-code}")]
-        public async ValueTask<IActionResult> TestResultGetByTestCode(string testCode)
+        [HttpGet("{studentId}")]
+        public async ValueTask<IActionResult> TestResultGetByTestCode(long studentId)
         {
-            var res=await _mediator.Send(new TestResultGetByTestCodeCommand() { TestCode = testCode });
+            var res=await _mediator.Send(new TestResultGetByStudentIdCommand() { StudentId= studentId });
 
             if (res == null)
                 return BadRequest(new
                 {
+                    res,
                     StatusCode=404,
                     Error="Not found"
                 });
+            return Ok(res);
+        }
+
+        [HttpGet("testCode")]
+        public async ValueTask<IActionResult> GetTestCode(string testCode)
+        {
+            var res = await _mediator.Send(new TestResultGetByTestCodeCommand() { TestCode = testCode });
+            if (res == null)
+                return NotFound();
+            return Ok(res);
+
+        }
+
+        [HttpDelete("{id}")]
+        public async ValueTask<IActionResult> Delete(long Id)
+        {
+            var res = await _mediator.Send(new TestResultDeleteCommand() { Id = Id });
+
+            if(res)
+                return NotFound();
+
             return Ok(res);
         }
      }

@@ -12,10 +12,7 @@ namespace EduTest.Application.Common.Validators
     {
         public TestValidator()
         {
-            RuleFor(a => a.TestCode)
-                .NotEmpty()
-                .WithMessage("Test code is required!")
-                .Length(5,7);
+           
         }
     }
 }

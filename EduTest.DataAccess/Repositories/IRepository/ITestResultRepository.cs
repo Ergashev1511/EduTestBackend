@@ -12,5 +12,6 @@ namespace EduTest.DataAccess.Repositories.IRepository
         Task<TestResult> AddAsync(TestResult result);
         Task<List<TestResult>> GetAllAsync();
         Task<TestResult> GetByIdAsync(long id);
+        Task<bool> DeleteAsync(long id);
     }
 }
