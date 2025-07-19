@@ -3,8 +3,8 @@
 services:
   api:
     build:
-      context: .
-      dockerfile: EduTestApi/dockerFile/Dockerfile
+         context: EduTestApi
+         dockerfile: dockerFile/Dockerfile
     ports:
       - "8080:80"
     depends_on:
