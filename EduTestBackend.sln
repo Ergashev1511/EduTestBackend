@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTest.Domain", "EduTest.Domain\EduTest.Domain.csproj", "{7DB61629-ADE9-4269-B634-FAB19CDCBFD6}"
 EndProject
@@ -10,6 +10,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTest.Application", "EduTest.Application\EduTest.Application.csproj", "{72F683F2-89ED-407E-AC5D-D29DEFFDF337}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduTestApi", "EduTestApi\EduTestApi.csproj", "{FBC700D1-5A38-49BF-B0F0-80CD45123EDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0B5D2D8D-FBA8-4DDB-8A9B-32D0DAAA939A}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4A8074DE-A750-437A-B6C6-726EA4EAFC36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +43,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A8074DE-A750-437A-B6C6-726EA4EAFC36} = {0B5D2D8D-FBA8-4DDB-8A9B-32D0DAAA939A}
 	EndGlobalSection
 EndGlobal
