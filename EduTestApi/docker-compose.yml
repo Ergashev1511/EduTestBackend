@@ -1,0 +1,36 @@
+﻿version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: EduTestApi/dockerFile/Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - postgres
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=EduTestDb;Username=postgres;Password=yourpassword
+    networks:
+      - edunet
+
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: EduTestDb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - edunet
+
+volumes:
+  pgdata:
+
+networks:
+  edunet:

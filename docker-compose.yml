@@ -1,0 +1,26 @@
+name: Docker Compose CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and run containers
+        run: docker-compose -f EduTestApi/docker-compose.yml up --build -d
+
+      - name: Wait for containers to initialize
+        run: sleep 10
+
+      - name: Check API Health
+        run: curl --fail http://localhost:5000/health || exit 1
