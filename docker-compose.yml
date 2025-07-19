@@ -23,4 +23,4 @@ jobs:
         run: sleep 10
 
       - name: Check API Health
-        run: curl --fail http://localhost:5000/health || exit 1
+        run: curl --fail http://localhost:8080/health || exit 1
